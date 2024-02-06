@@ -16,7 +16,8 @@
 /typings
 
 # Screeps Config
-screeps.json
+/screeps.json
+/screeps.sample.json
 
 # ScreepsServer data from integration tests
 /server
@@ -43,6 +44,8 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
+.vscode
+.devcontainer
 
 # =========================
 # Operating System Files

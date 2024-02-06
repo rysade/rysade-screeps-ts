@@ -1,4 +1,6 @@
 import { ErrorMapper } from "utils/ErrorMapper";
+import { roleHarvester } from "role.harvester";
+import { roleUpgrader } from "role.upgrader";
 
 declare global {
   /*
@@ -38,6 +40,15 @@ export const loop = ErrorMapper.wrapLoop(() => {
   for (const name in Memory.creeps) {
     if (!(name in Game.creeps)) {
       delete Memory.creeps[name];
+    }
+  }
+  for(var name in Game.creeps) {
+    var creep = Game.creeps[name];
+    if(creep.memory.role == 'harvester') {
+        roleHarvester.run(creep);
+    }
+    if(creep.memory.role == 'upgrader') {
+        roleUpgrader.run(creep);
     }
   }
 });
